@@ -109,6 +109,7 @@ void login(){
             printf("用户名错误，请重新输入\n");
             continue;
         }
+        user[0]='\0';
     }while(1);
 }
 
