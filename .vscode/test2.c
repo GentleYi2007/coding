@@ -3,10 +3,10 @@
 #include <stdlib.h>
 #ifdef _WIN32
     #include <direct.h>
-    #define hhh '\\' 
+    #define hhh '\\'    
 #else
     #include <unistd.h>
-    #define hhh '/'
+    #define hhh '/'     
 #endif
 FILE *fl=NULL;
 char key[100][100];
