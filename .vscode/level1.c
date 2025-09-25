@@ -73,6 +73,7 @@ void login(){
                 }
                 if(strcmp(str,"Exit")==0&&op=='\n')break;
             }while(1);
+            user[0]='\0';
             continue;
         }
         if(str[0]>='A'&&str[0]<='Z'&&str[1]=='\0'){
@@ -104,12 +105,17 @@ void login(){
                 }
                 if(strcmp(str,"Exit")==0&&op=='\n')break;
             }while(1);
-            continue;
-        }else{
-            printf("用户名错误，请重新输入\n");
+            user[0]='\0';
             continue;
         }
-        user[0]='\0';
+        else if(strcmp(str,"Quit")==0){
+                    user[0]='\0';
+                    printf("感谢与你相遇，我们下次再见~\n");
+                    return;
+                }else{
+                    printf("用户名错误，请重新输入\n");
+                    continue;
+                }
     }while(1);
 }
 
