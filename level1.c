@@ -15,6 +15,7 @@ int main(){
         fwrite(seat,sizeof(seat),1,fl);
         fclose(fl);
     }
+    fclose(fl);
     do
     {   
         printf("请输入(Login登录用户，Quit退出程序)：");
@@ -216,21 +217,21 @@ void readstr(char *tmp){
     if(strcmp(tmp,"Reservation")==0){
         fl=fopen("seatdata.txt","r");
         for(int a=0;a<7;a++){
+            char day[10];
+            switch(a){
+                case 0:strcpy(day,"Monday");break;
+                case 1:strcpy(day,"Tuesday");break;
+                case 2:strcpy(day,"Wednesday");break;
+                case 3:strcpy(day,"Thursday");break;
+                case 4:strcpy(day,"Friday");break;
+                case 5:strcpy(day,"Saturday");break;
+                case 6:strcpy(day,"Sunday");break;
+            }
             for(int b=0;b<5;b++){
                 for(int c=0;c<4;c++){
                     for(int d=0;d<4;d++){
                         seat[a][b+1][c+1][d+1]=fgetc(fl);
                         if(seat[a][b+1][c+1][d+1]==user[0]&&user[1]=='\0'){
-                            char day[10];
-                            switch(a){
-                                case 0:strcpy(day,"Monday");break;
-                                case 1:strcpy(day,"Tuesday");break;
-                                case 2:strcpy(day,"Wednesday");break;
-                                case 3:strcpy(day,"Thursday");break;
-                                case 4:strcpy(day,"Friday");break;
-                                case 5:strcpy(day,"Saturday");break;
-                                case 6:strcpy(day,"Sunday");break;
-                            }
                             printf("%s Floor %d Seat %d %d\n",day,b+1,c+1,d+1);
                         }
                     }
@@ -259,4 +260,4 @@ void admin(char *tmp){
         endbool=2;
     }
     readstr(tmp);
-}
+} 
